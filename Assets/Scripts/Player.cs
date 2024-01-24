@@ -1,4 +1,3 @@
-//essai
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public int PlayerType = 1;
     public GameManager gameManager;
+    public int Team = 1;
 
     //Variables Vitesses
     public float vitesseDeplacement = 5f;
@@ -20,6 +20,11 @@ public class Player : MonoBehaviour
     //variable range
     public float rayonDeplacement = 5f;
     [SerializeField] private GameObject _range;
+
+    //variables d'attaques
+    public bool isAttack = false;
+    public float AttackRange = 5f;
+    public GameObject targetObject;
     
 
     void Update()
@@ -65,6 +70,26 @@ public class Player : MonoBehaviour
     public void Skip(){
         _actionMenu.SetActive(false);
         gameManager.ActiveTour += 1;
+    }
+
+    public void Attack(){
+        _actionMenu.SetActive(false);
+        if(isAttack == true){
+            targetObject.SetActive(false);   
+        }
+    }
+
+    //verifie si il y a un joueur
+    void OnTriggerStay2D(Collider2D other)
+    {
+        Debug.Log("Objet detecté");
+        // Vérifie si le collider qui entre a un composant SpriteRenderer
+        SpriteRenderer spriteRenderer = other.GetComponent<SpriteRenderer>();
+        
+        if (spriteRenderer != null && PlayerType != gameManager.ActiveTour )
+        {
+            isAttack = true;
+        }
     }
 
 }
