@@ -45,13 +45,14 @@ public class Player : MonoBehaviour
                 if (transform.position != positionClic && isRunning == true)
                 {
                     transform.position = Vector3.MoveTowards(transform.position, positionClic, vitesseDeplacement * Time.deltaTime);
-                    _range.SetActive(false);
 
                 }
                 else if (isRunning == true)
                 {
                     gameManager.ActiveTour += 1;
                     isRunning = false;
+                    _range.SetActive(false);
+                    Deplace = false;
                 }
             }
         }
@@ -59,6 +60,11 @@ public class Player : MonoBehaviour
 
     public void Deplacement(){
         Deplace = true;
+    }
+
+    public void Skip(){
+        _actionMenu.SetActive(false);
+        gameManager.ActiveTour += 1;
     }
 
 }
