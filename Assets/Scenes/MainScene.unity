@@ -16932,6 +16932,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 30572791}
     m_Modifications:
     - target: {fileID: 856777024667761859, guid: bcb9d1f4a09f787419457db73de36b96, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 856777024667761859, guid: bcb9d1f4a09f787419457db73de36b96, type: 3}
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
@@ -16941,7 +16945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5415918784944210228, guid: bcb9d1f4a09f787419457db73de36b96, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6061142777198055345, guid: bcb9d1f4a09f787419457db73de36b96, type: 3}
       propertyPath: m_LocalPosition.x
