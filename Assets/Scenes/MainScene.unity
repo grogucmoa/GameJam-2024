@@ -4836,6 +4836,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 30572791}
     m_Modifications:
+    - target: {fileID: 1984935472401891188, guid: bcb9d1f4a09f787419457db73de36b96, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2144314520758498474, guid: bcb9d1f4a09f787419457db73de36b96, type: 3}
       propertyPath: m_Name
       value: Floor (21)
