@@ -1,3 +1,4 @@
+//essai
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,10 @@ public class Player : MonoBehaviour
     private Vector3 positionClic;
     public bool isRunning = false;
 
+	//variables UI
+	[SerializeField] private GameObject _actionMenu;
+    public bool Deplace = false;
+		
     //variable range
     public float rayonDeplacement = 5f;
     [SerializeField] private GameObject _range;
@@ -21,50 +26,39 @@ public class Player : MonoBehaviour
     {
         if(PlayerType == gameManager.ActiveTour)
         {
-            _range.SetActive(true);
-            
-            if (gameManager.ActiveTour>= 1 && gameManager.ActiveTour <= 4) 
-            {
-                GetComponent<SpriteRenderer>().color = Color.green;
-            }
+            _actionMenu.SetActive(true);
+            if(Deplace == true){
+                _range.SetActive(true);
+                _actionMenu.SetActive(false);
 
-            if (gameManager.ActiveTour>= 5 && gameManager.ActiveTour <= 8) 
-            {
-                GetComponent<SpriteRenderer>().color = Color.yellow;
-            }
-
-            if (gameManager.ActiveTour>=9 && gameManager.ActiveTour <= 12) 
-            {
-                GetComponent<SpriteRenderer>().color = Color.red;
-            }
-
-            if (gameManager.ActiveTour>= 13 && gameManager.ActiveTour <= 16) 
-            {
-                GetComponent<SpriteRenderer>().color = Color.blue;
-            }
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                positionClic = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                positionClic.z = 0;
-
-                if (Vector3.Distance(transform.position, positionClic) <= rayonDeplacement)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    isRunning = true;
-                }
-            }
+                    positionClic = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    positionClic.z = 0;
 
-            if (transform.position != positionClic && isRunning == true)
+                    if (Vector3.Distance(transform.position, positionClic) <= rayonDeplacement)
+                    {
+                        isRunning = true;
+                    }
+                }
+
+                if (transform.position != positionClic && isRunning == true)
                 {
                     transform.position = Vector3.MoveTowards(transform.position, positionClic, vitesseDeplacement * Time.deltaTime);
+                    _range.SetActive(false);
 
                 }
-            else if (isRunning == true)
+                else if (isRunning == true)
                 {
-                    _range.SetActive(false);
                     gameManager.ActiveTour += 1;
                     isRunning = false;
                 }
+            }
         }
     }
+
+    public void Deplacement(){
+        Deplace = true;
+    }
+
 }

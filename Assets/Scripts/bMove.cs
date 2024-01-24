@@ -5,16 +5,8 @@ using UnityEngine;
 public class bMove : MonoBehaviour
 {
     
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public bool Deplacement = false;
+    void setbMove(){
+        Deplacement = true;
     }
 }
