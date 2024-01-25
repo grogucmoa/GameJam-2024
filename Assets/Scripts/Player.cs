@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
 
     //variables du chateau
     public int Team = 0;
+    public bool isCastle = false;
+    public bool Bomb = false;
     
     private Collider2D target = null;
 
@@ -92,12 +94,20 @@ public class Player : MonoBehaviour
         print("is in range : " + isInRange);
     }
 
+    public void Spell(){
+        if (isInRange == true && target != null && Bomb == true){
+            Destroy(target.gameObject);
+            _actionMenu.SetActive(false);
+            gameManager.ActiveTour += 1;
+            gameManager.Game -= 1;
+        }
+    }
+
     //verifie si il y a un joueur
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.GetComponent<Player>().PlayerType != gameManager.ActiveTour)
-        {
-            
+        {   
             isInRange = true;
             target = other;
         }
@@ -106,15 +116,32 @@ public class Player : MonoBehaviour
             target = null;
         }
 
+        if (other.GetComponent<Player>().PlayerType != gameManager.ActiveTour && other.GetComponent<Player>().isCastle == true)
+        {
+            Bomb = true;
+            isInRange = true;
+            target = other;
+        }
+
     }
 
     public void kill(GameObject target){
         
-        if (target.GetComponent<Player>().Team == 1){
-            gameManager.Game -= 1;
+        if (target.GetComponent<Player>().isCastle != true)
+        {
+            target.GetComponent<SpriteRenderer>().enabled = false;
+            target = null;
         }
-        target.GetComponent<SpriteRenderer>().enabled = false;
-        target = null;
+        
+    }
+
+    public void Destroy(GameObject target){
+        
+        if (target.GetComponent<Player>().isCastle == true)
+        {
+            target.GetComponent<SpriteRenderer>().enabled = false;
+            target = null;
+        }
         
     }
 
