@@ -1,3 +1,4 @@
+//progress
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -87,6 +88,7 @@ public class Player : MonoBehaviour
 
     public void Skip(){
         _actionMenu.SetActive(false);
+        _MoveButton.SetActive(true);
         gameManager.ActiveTour += 1;
     }
 
@@ -94,6 +96,7 @@ public class Player : MonoBehaviour
         if(isInRange == true && target != null){
             kill(target.gameObject);
             _actionMenu.SetActive(false);
+            _MoveButton.SetActive(true);
             gameManager.ActiveTour += 1;
         }
         print("is in range : " + isInRange);
@@ -138,21 +141,27 @@ public class Player : MonoBehaviour
 
             if(target.GetComponent<Player>().PlayerType <=4){
                 //tp to spawn Bleu
-                TeleporterJoueur(4.5f, 4.43f);
+                TeleporterJoueur(4.5f, -4.22f);
                 target.GetComponent<SpriteRenderer>().enabled = true;
 
             }
 
-            if(target.GetComponent<Player>().PlayerType <=8){
+            if(target.GetComponent<Player>().PlayerType >=5 && target.GetComponent<Player>().PlayerType <=8){
                 //tp to spawn Rouge
+                TeleporterJoueur(12.55f, -4.28f);
+                target.GetComponent<SpriteRenderer>().enabled = true;
             }
 
-            if(target.GetComponent<Player>().PlayerType <=12){
+            if(target.GetComponent<Player>().PlayerType >=9 && target.GetComponent<Player>().PlayerType <=12){
                 //tp to spawn Jaune
+                TeleporterJoueur(12.55f, -12.42f);
+                target.GetComponent<SpriteRenderer>().enabled = true;
             }
 
-            if(target.GetComponent<Player>().PlayerType <=16){
+            if(target.GetComponent<Player>().PlayerType >=13 && target.GetComponent<Player>().PlayerType <=16){
                 //tp to spawn Vert
+                TeleporterJoueur(4.27f, -12.42f);
+                target.GetComponent<SpriteRenderer>().enabled = true;
             }
             target = null;
         }
