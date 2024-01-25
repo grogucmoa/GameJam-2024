@@ -763,8 +763,8 @@ GameObject:
   - component: {fileID: 5440405373520689694}
   - component: {fileID: 5776457479773985833}
   - component: {fileID: 4956018857333686568}
-  - component: {fileID: 279823443967477617}
   - component: {fileID: 8015323037667550043}
+  - component: {fileID: 4379939871463811360}
   m_Layer: 0
   m_Name: BlueEngineer
   m_TagString: Untagged
@@ -853,11 +853,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bed0cc125c179f45a319cda5e2226ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerType: 4
+  PlayerType: 2
   gameManager: {fileID: 0}
+  playerTransform: {fileID: 5440405373520689694}
   vitesseDeplacement: 5
   isRunning: 0
   _actionMenu: {fileID: 6984511271569964998}
+  _MoveButton: {fileID: 7649893647379438535}
   Deplace: 0
   rayonDeplacement: 5
   _range: {fileID: 6970110477704604899}
@@ -867,8 +869,35 @@ MonoBehaviour:
   Team: 0
   isCastle: 0
   Bomb: 0
---- !u!61 &279823443967477617
-BoxCollider2D:
+--- !u!50 &8015323037667550043
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559970228213256237}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &4379939871463811360
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -899,46 +928,9 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07584095, y: -0.054367065}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.19, y: 1.18}
-    newSize: {x: 1.08, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 3.0293865, y: 3.02848}
-  m_EdgeRadius: 0
---- !u!50 &8015323037667550043
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5559970228213256237}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Radius: 1.33
 --- !u!1 &6984511271569964998
 GameObject:
   m_ObjectHideFlags: 0

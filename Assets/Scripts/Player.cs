@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public int PlayerType = 1;
     public GameManager gameManager;
     private SpriteRenderer spriteRenderer;
+    public Transform playerTransform;
 
     //Variables Vitesses
     public float vitesseDeplacement = 5f;
@@ -15,6 +16,7 @@ public class Player : MonoBehaviour
 
 	//variables UI
 	[SerializeField] private GameObject _actionMenu;
+    [SerializeField] private GameObject _MoveButton;
     public bool Deplace = false;
 		
     //variable range
@@ -37,12 +39,15 @@ public class Player : MonoBehaviour
     {
         if(PlayerType == gameManager.ActiveTour)
         {
+            // Passer le tour si un joueur est desactivé/dead
             spriteRenderer = GetComponent<SpriteRenderer>();
             if (spriteRenderer.enabled == false){
                 gameManager.ActiveTour += 1;
             }
             else{
                 _actionMenu.SetActive(true);
+            
+            // Deplacer le joueur
             if(Deplace == true){
                 _range.SetActive(true);
                 _actionMenu.SetActive(false);
@@ -65,7 +70,7 @@ public class Player : MonoBehaviour
                 }
                 else if (isRunning == true)
                 {
-                    gameManager.ActiveTour += 1;
+                    _MoveButton.SetActive(false);
                     isRunning = false;
                     _range.SetActive(false);
                     Deplace = false;
@@ -130,6 +135,25 @@ public class Player : MonoBehaviour
         if (target.GetComponent<Player>().isCastle != true)
         {
             target.GetComponent<SpriteRenderer>().enabled = false;
+
+            if(target.GetComponent<Player>().PlayerType <=4){
+                //tp to spawn Bleu
+                TeleporterJoueur(4.5f, 4.43f);
+                target.GetComponent<SpriteRenderer>().enabled = true;
+
+            }
+
+            if(target.GetComponent<Player>().PlayerType <=8){
+                //tp to spawn Rouge
+            }
+
+            if(target.GetComponent<Player>().PlayerType <=12){
+                //tp to spawn Jaune
+            }
+
+            if(target.GetComponent<Player>().PlayerType <=16){
+                //tp to spawn Vert
+            }
             target = null;
         }
         
@@ -143,6 +167,16 @@ public class Player : MonoBehaviour
             target = null;
         }
         
+    }
+
+    void TeleporterJoueur(float x, float y)
+    {
+        // Créer un nouveau vecteur avec les coordonnées spécifiées
+        Vector3 nouvellePosition = new Vector3(x, y, 0f);
+
+        // Appliquer la nouvelle position au transform du joueur
+        target.GetComponent<Transform>().position = nouvellePosition;
+        print("sa marche");
     }
 
 }

@@ -899,8 +899,8 @@ GameObject:
   - component: {fileID: 236399127283769708}
   - component: {fileID: 6780741516807032442}
   - component: {fileID: 8224300251714430952}
-  - component: {fileID: 4273820321263637757}
   - component: {fileID: 2606405206337391539}
+  - component: {fileID: 6071219791532679644}
   m_Layer: 0
   m_Name: BlueSoldier
   m_TagString: Untagged
@@ -991,9 +991,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerType: 1
   gameManager: {fileID: 0}
+  playerTransform: {fileID: 236399127283769708}
   vitesseDeplacement: 5
   isRunning: 0
   _actionMenu: {fileID: 1827024023908062701}
+  _MoveButton: {fileID: 5581371204941619843}
   Deplace: 0
   rayonDeplacement: 3
   _range: {fileID: 8324254878424008740}
@@ -1003,8 +1005,35 @@ MonoBehaviour:
   Team: 0
   isCastle: 0
   Bomb: 0
---- !u!61 &4273820321263637757
-BoxCollider2D:
+--- !u!50 &2606405206337391539
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7303048293692035202}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &6071219791532679644
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1035,46 +1064,9 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07584095, y: -0.054367065}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.08, y: 1}
-    newSize: {x: 1.08, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 3.0293865, y: 3.02848}
-  m_EdgeRadius: 0
---- !u!50 &2606405206337391539
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7303048293692035202}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Radius: 1.33
 --- !u!1 &8500688012284283318
 GameObject:
   m_ObjectHideFlags: 0
