@@ -5749,12 +5749,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerType: 14
   gameManager: {fileID: 377383650}
+  Team: 1
   vitesseDeplacement: 5
   isRunning: 0
   _actionMenu: {fileID: 1858772982}
   Deplace: 0
   rayonDeplacement: 5
   _range: {fileID: 815435269}
+  isAttack: 0
+  AttackRange: 1
+  targetObject: {fileID: 0}
 --- !u!212 &628076174
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7416,12 +7420,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerType: 13
   gameManager: {fileID: 377383650}
+  Team: 1
   vitesseDeplacement: 5
   isRunning: 0
   _actionMenu: {fileID: 1417138638}
   Deplace: 0
   rayonDeplacement: 5
   _range: {fileID: 898042223}
+  isAttack: 0
+  AttackRange: 1
+  targetObject: {fileID: 0}
 --- !u!212 &817495789
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10112,12 +10120,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerType: 7
   gameManager: {fileID: 377383650}
+  Team: 1
   vitesseDeplacement: 5
   isRunning: 0
   _actionMenu: {fileID: 624161137}
   Deplace: 0
   rayonDeplacement: 5
   _range: {fileID: 1380743156}
+  isAttack: 0
+  AttackRange: 1
+  targetObject: {fileID: 0}
 --- !u!212 &1032979524
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10695,12 +10707,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerType: 16
   gameManager: {fileID: 377383650}
+  Team: 1
   vitesseDeplacement: 5
   isRunning: 0
   _actionMenu: {fileID: 642019038}
   Deplace: 0
   rayonDeplacement: 5
   _range: {fileID: 1979614827}
+  isAttack: 0
+  AttackRange: 1
+  targetObject: {fileID: 0}
 --- !u!212 &1067444267
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12061,12 +12077,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerType: 10
   gameManager: {fileID: 377383650}
+  Team: 1
   vitesseDeplacement: 5
   isRunning: 0
   _actionMenu: {fileID: 1324292009}
   Deplace: 0
   rayonDeplacement: 5
   _range: {fileID: 2008180115}
+  isAttack: 0
+  AttackRange: 1
+  targetObject: {fileID: 0}
 --- !u!212 &1155701027
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12927,6 +12947,8 @@ GameObject:
   - component: {fileID: 1205850491}
   - component: {fileID: 1205850493}
   - component: {fileID: 1205850492}
+  - component: {fileID: 1205850494}
+  - component: {fileID: 1205850495}
   m_Layer: 0
   m_Name: RedMage
   m_TagString: Untagged
@@ -12965,12 +12987,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerType: 8
   gameManager: {fileID: 377383650}
+  Team: 1
   vitesseDeplacement: 5
   isRunning: 0
   _actionMenu: {fileID: 1954051787}
   Deplace: 0
   rayonDeplacement: 5
   _range: {fileID: 1290316908}
+  isAttack: 0
+  AttackRange: 1
+  targetObject: {fileID: 0}
 --- !u!212 &1205850493
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13023,6 +13049,78 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1205850494
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205850490}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.79, y: 0.94}
+    newSize: {x: 1.08, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.79, y: 0.94}
+  m_EdgeRadius: 0
+--- !u!50 &1205850495
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205850490}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1208609112
 GameObject:
   m_ObjectHideFlags: 0
@@ -14157,7 +14255,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1681877025}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: Deplacement
+        m_MethodName: Attck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14726,12 +14824,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerType: 11
   gameManager: {fileID: 377383650}
+  Team: 1
   vitesseDeplacement: 5
   isRunning: 0
   _actionMenu: {fileID: 2126250285}
   Deplace: 0
   rayonDeplacement: 5
   _range: {fileID: 1210643685}
+  isAttack: 0
+  AttackRange: 1
+  targetObject: {fileID: 0}
 --- !u!212 &1332404898
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16289,12 +16391,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerType: 12
   gameManager: {fileID: 377383650}
+  Team: 1
   vitesseDeplacement: 5
   isRunning: 0
   _actionMenu: {fileID: 476970218}
   Deplace: 0
   rayonDeplacement: 5
   _range: {fileID: 278319572}
+  isAttack: 0
+  AttackRange: 1
+  targetObject: {fileID: 0}
 --- !u!212 &1529071047
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16497,7 +16603,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1665066979}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: Deplacement
+        m_MethodName: Attack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17560,12 +17666,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerType: 3
   gameManager: {fileID: 377383650}
+  Team: 1
   vitesseDeplacement: 5
   isRunning: 0
   _actionMenu: {fileID: 652256342}
   Deplace: 0
   rayonDeplacement: 5
   _range: {fileID: 339458793}
+  isAttack: 0
+  AttackRange: 1
+  targetObject: {fileID: 0}
 --- !u!212 &1637685468
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17896,6 +18006,8 @@ GameObject:
   - component: {fileID: 1665066978}
   - component: {fileID: 1665066980}
   - component: {fileID: 1665066979}
+  - component: {fileID: 1665066981}
+  - component: {fileID: 1665066982}
   m_Layer: 0
   m_Name: BlueSoldier
   m_TagString: Untagged
@@ -17912,7 +18024,7 @@ Transform:
   m_GameObject: {fileID: 1665066977}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -39.18, y: 5.25, z: 2.245281}
+  m_LocalPosition: {x: -26.91, y: 2.6, z: 2.245281}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17934,12 +18046,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerType: 1
   gameManager: {fileID: 377383650}
+  Team: 1
   vitesseDeplacement: 5
   isRunning: 0
   _actionMenu: {fileID: 358659492}
   Deplace: 0
   rayonDeplacement: 5
   _range: {fileID: 1076834026}
+  isAttack: 0
+  AttackRange: 1
+  targetObject: {fileID: 0}
 --- !u!212 &1665066980
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17992,6 +18108,78 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1665066981
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665066977}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.59451246, y: -0.30045247}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.08, y: 1}
+    newSize: {x: 1.08, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.2690248, y: 1.600905}
+  m_EdgeRadius: 0
+--- !u!50 &1665066982
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665066977}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1676739214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18106,12 +18294,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerType: 6
   gameManager: {fileID: 377383650}
+  Team: 1
   vitesseDeplacement: 5
   isRunning: 0
   _actionMenu: {fileID: 397580429}
   Deplace: 0
   rayonDeplacement: 5
   _range: {fileID: 1263792625}
+  isAttack: 0
+  AttackRange: 1
+  targetObject: {fileID: 0}
 --- !u!212 &1677962434
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18213,12 +18405,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerType: 2
   gameManager: {fileID: 377383650}
+  Team: 1
   vitesseDeplacement: 5
   isRunning: 0
   _actionMenu: {fileID: 1887351650}
   Deplace: 0
   rayonDeplacement: 5
   _range: {fileID: 278507888}
+  isAttack: 0
+  AttackRange: 1
+  targetObject: {fileID: 0}
 --- !u!212 &1681877026
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19220,12 +19416,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerType: 9
   gameManager: {fileID: 377383650}
+  Team: 1
   vitesseDeplacement: 5
   isRunning: 0
   _actionMenu: {fileID: 1401073381}
   Deplace: 0
   rayonDeplacement: 5
   _range: {fileID: 161085017}
+  isAttack: 0
+  AttackRange: 1
+  targetObject: {fileID: 0}
 --- !u!212 &1794804739
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20308,12 +20508,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerType: 4
   gameManager: {fileID: 377383650}
+  Team: 1
   vitesseDeplacement: 5
   isRunning: 0
   _actionMenu: {fileID: 1586575196}
   Deplace: 0
   rayonDeplacement: 5
   _range: {fileID: 1541498511}
+  isAttack: 0
+  AttackRange: 1
+  targetObject: {fileID: 0}
 --- !u!212 &1875636423
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21377,7 +21581,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1637685467}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: Deplacement
+        m_MethodName: Attck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21741,12 +21945,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerType: 5
   gameManager: {fileID: 377383650}
+  Team: 1
   vitesseDeplacement: 5
   isRunning: 0
   _actionMenu: {fileID: 673420676}
   Deplace: 0
   rayonDeplacement: 5
   _range: {fileID: 755067546}
+  isAttack: 0
+  AttackRange: 1
+  targetObject: {fileID: 0}
 --- !u!212 &1968019120
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23977,12 +24185,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerType: 15
   gameManager: {fileID: 377383650}
+  Team: 1
   vitesseDeplacement: 5
   isRunning: 0
   _actionMenu: {fileID: 579112395}
   Deplace: 0
   rayonDeplacement: 5
   _range: {fileID: 1045134625}
+  isAttack: 0
+  AttackRange: 1
+  targetObject: {fileID: 0}
 --- !u!212 &2139994679
 SpriteRenderer:
   m_ObjectHideFlags: 0
