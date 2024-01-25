@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     public int PlayerType = 1;
     public GameManager gameManager;
-    public int Team = 1;
+    private SpriteRenderer spriteRenderer;
 
     //Variables Vitesses
     public float vitesseDeplacement = 5f;
@@ -23,15 +23,24 @@ public class Player : MonoBehaviour
 
     //variables d'attaques
     public bool isAttack = false;
-    public float AttackRange = 5f;
+    public bool isInRange = false;
     public GameObject targetObject;
+
+    //variables du chateau
+    public int Team = 0;
     
+    private Collider2D target = null;
 
     void Update()
     {
         if(PlayerType == gameManager.ActiveTour)
         {
-            _actionMenu.SetActive(true);
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            if (spriteRenderer.enabled == false){
+                gameManager.ActiveTour += 1;
+            }
+            else{
+                _actionMenu.SetActive(true);
             if(Deplace == true){
                 _range.SetActive(true);
                 _actionMenu.SetActive(false);
@@ -60,6 +69,8 @@ public class Player : MonoBehaviour
                     Deplace = false;
                 }
             }
+            }
+            
         }
     }
 
@@ -73,23 +84,38 @@ public class Player : MonoBehaviour
     }
 
     public void Attack(){
-        _actionMenu.SetActive(false);
-        if(isAttack == true){
-            targetObject.SetActive(false);   
+        if(isInRange == true && target != null){
+            kill(target.gameObject);
+            _actionMenu.SetActive(false);
+            gameManager.ActiveTour += 1;
         }
+        print("is in range : " + isInRange);
     }
 
     //verifie si il y a un joueur
     void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("Objet detecté");
-        // Vérifie si le collider qui entre a un composant SpriteRenderer
-        SpriteRenderer spriteRenderer = other.GetComponent<SpriteRenderer>();
-        
-        if (spriteRenderer != null && PlayerType != gameManager.ActiveTour )
+        if (other.GetComponent<Player>().PlayerType != gameManager.ActiveTour)
         {
-            isAttack = true;
+            
+            isInRange = true;
+            target = other;
         }
+        else{
+            isInRange = false;
+            target = null;
+        }
+
+    }
+
+    public void kill(GameObject target){
+        
+        if (target.GetComponent<Player>().Team == 1){
+            gameManager.Game -= 1;
+        }
+        target.GetComponent<SpriteRenderer>().enabled = false;
+        target = null;
+        
     }
 
 }

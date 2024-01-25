@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     
     public string joueur = "";
     public int ActiveTour = 0;
+    public int Game = 4;
     
     // Start is called before the first frame update
     void Start()
